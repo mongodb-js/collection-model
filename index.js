@@ -79,7 +79,39 @@ var Collection = AmpersandModel.extend({
      *
      * http://docs.mongodb.org/manual/reference/command/collStats/#collStats.wiredTiger
      */
-    wired_tiger: 'object'
+    wired_tiger: 'object',
+    /**
+     * TODO (imlucas) listCollections() refactor. This will be res.type.
+     */
+    type: {
+      type: 'string',
+      default: 'collection',
+      values: ['collection', 'view']
+    },
+    /**
+     * TODO (imlucas) listCollections() refactor. This will be res.info.readOnly.
+     */
+    read_only: {
+      type: 'boolean',
+      default: false
+    },
+    /**
+     * TODO (imlucas) listCollections() refactor. This will be res.options.viewOn.
+     */
+    view_on: {
+      type: 'string',
+      default: undefined,
+      allowNull: true
+    },
+    /**
+     * TODO (imlucas) listCollections() refactor. This will be res.options.pipeline.
+     */
+    pipeline: {
+      type: 'array',
+      default: function() {
+        return [];
+      }
+    }
   },
   collections: {
     indexes: IndexCollection
