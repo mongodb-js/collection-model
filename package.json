@@ -15,7 +15,7 @@
     "pretest": "electron-rebuild",
     "test": "mocha && npm run test:electron",
     "pretest:electron": "electron-rebuild",
-    "test:electron": "xvfb-maybe && electron-mocha --renderer"
+    "test:electron": "xvfb-maybe electron-mocha --renderer"
   },
   "dependency-check": {
     "ignore": [
