@@ -9,3 +9,14 @@ script:
   - npm run check
   - npm test
 cache: npm
+addons:
+  apt:
+    # for kerberos and keytar dependencies via mongodb-data-service
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libkrb5-dev
+      - xvfb
+      - libsecret-1-dev
+      - gnome-keyring
+      - python-gnomekeyring
